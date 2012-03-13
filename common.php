@@ -177,6 +177,9 @@ function remove_followee($follower_user_id, $followee) {
 }
 
 function setup_session() {
+  ini_set("session.cookie_lifetime", 60*60*24*180 /*sec*/);
+  ini_set("session.gc_maxlifetime", 60*60*24*180 /*sec*/);
+
   session_start();
 
   if (!isset($_SESSION['initiated']))
